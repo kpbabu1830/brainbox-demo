@@ -1,7 +1,3 @@
-/**
- * Validates an email address format.
- * BUG: Does not handle null/undefined input - crashes on .split()
- */
 function validateEmail(email) {
   const parts = email.split('@');
   const domain = parts[1].split('.');
