@@ -4,8 +4,8 @@ class UserSerializer {
       id: user.id,
       name: user.name,
       email: user.email,
-      profilePictureUrl: user.profilePicture.url,
-      profilePictureThumbnail: user.profilePicture.thumbnail,
+      profilePictureUrl: user.profilePicture ? user.profilePicture.url : null,
+      profilePictureThumbnail: user.profilePicture ? user.profilePicture.thumbnail : null,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };
