@@ -1,7 +1,15 @@
 function calculateTotals(salesData) {
+  if (!salesData || salesData.length === 0) {
+    return {
+      totalRevenue: 0,
+      totalOrders: 0,
+      averageOrderValue: 0,
+    };
+  }
+
   const totalRevenue = salesData.reduce((sum, item) => sum + item.revenue, 0);
   const totalOrders = salesData.reduce((sum, item) => sum + item.orders, 0);
-  const averageOrderValue = totalRevenue / totalOrders;
+  const averageOrderValue = totalOrders > 0 ? totalRevenue / totalOrders : 0;
 
   return {
     totalRevenue,
@@ -11,6 +19,9 @@ function calculateTotals(salesData) {
 }
 
 function formatCurrency(amount) {
+  if (amount === null || amount === undefined || isNaN(amount)) {
+    return '$0.00';
+  }
   return `$${amount.toFixed(2)}`;
 }
 
